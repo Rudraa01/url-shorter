@@ -4,6 +4,10 @@
     {
       "src": "api/index.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "api/templates/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -20,6 +24,6 @@
     "FLASK_ENV": "production",
     "FLASK_APP": "api/index.py",
     "PYTHONPATH": ".",
-    "TEMPLATES_PATH": "templates"
+    "FLASK_DEBUG": "1"
   }
 }

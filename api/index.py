@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, jsonify, url_for
+from flask import Flask, request, redirect, render_template, jsonify, url_for, send_from_directory
 import string
 import random
 from urllib.parse import urlparse
@@ -6,13 +6,15 @@ import json
 import os
 from functools import wraps
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 # Configure template folder based on environment
-if os.environ.get('VERCEL'):
-    app.template_folder = 'templates'
-else:
-    app.template_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
+template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+app.template_folder = template_dir
+
+# Enable debug logging
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 # Use in-memory storage for Vercel deployment
 url_storage = {}
