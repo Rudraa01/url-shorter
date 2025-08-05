@@ -19,22 +19,7 @@
   "env": {
     "FLASK_ENV": "production",
     "FLASK_APP": "api/index.py",
-    "PYTHONPATH": "."
-  }}
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "api/index.py"
-    }
-  ],
-  "env": {
-    "FLASK_ENV": "production",
-    "FLASK_APP": "api/index.py"
+    "PYTHONPATH": ".",
+    "TEMPLATES_PATH": "templates"
   }
 }
